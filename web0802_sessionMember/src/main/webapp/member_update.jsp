@@ -6,14 +6,14 @@
 
 <%
 request.setCharacterEncoding("utf-8");
+String id = request.getParameter("id");
 String pw = request.getParameter("pw");
 String name = request.getParameter("name");
-String id = request.getParameter("id");
 // System.out.println(pw);
 // System.out.println(name);
 // System.out.println(id);
 memberDAO dao = new memberDAO();
-memberDTO dto = new memberDTO(pw, name, id);
+memberDTO dto = new memberDTO(id, pw, name);
 dao.memberUpdate(dto);
 session.setAttribute("password", dto.getPw());
 session.setAttribute("userName", dto.getName());
